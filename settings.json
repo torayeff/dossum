@@ -1,0 +1,7 @@
+{
+	"public": {
+		"gsBucketURL": "<BUCKET URL>"
+	},
+	"gsBucket": "<BUCKET NAME>",
+	"GoogleAccessId": "<GOOGLE ACCESS ID>"
+}

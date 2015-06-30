@@ -1,0 +1,31 @@
+<template name="tabs">
+	{{#if currentUser}}
+		{{#if isAndroid}}
+			{{#ionTabs style="android" class="tabs-top"}}
+				{{> ionTab title="Contacts" path="contacts" iconOff="android-people" iconOn="android-people"}}
+
+				{{#if newMessage}}
+					{{> ionTab title="Chats" path="recentChats" class="assertive" iconOff="android-chat" iconOn="android-chat"}}
+				{{else}}
+					{{> ionTab title="Chats" path="recentChats" iconOff="android-chat" iconOn="android-chat"}}
+				{{/if}}
+
+				{{> ionTab title="Account" path="account" iconOff="android-person" iconOn="android-person"}}
+				{{> ionTab title="Radius" path="radius" iconOff="pinpoint" iconOn="pinpoint"}}
+			{{/ionTabs}}
+		{{else}}
+			{{#ionTabs style="ios" class="tabs-top"}}
+				{{> ionTab title="Contacts" path="contacts" iconOff="ios-people" iconOn="ios-people"}}
+
+				{{#if newMessage}}
+					{{> ionTab title="Chats" path="recentChats" class="assertive" iconOff="ios-chatboxes" iconOn="ios-chatboxes"}}
+				{{else}}
+					{{> ionTab title="Chats" path="recentChats" iconOff="ios-chatboxes" iconOn="ios-chatboxes"}}
+				{{/if}}
+
+				{{> ionTab title="Account" path="account" iconOff="ios-person" iconOn="ios-person"}}
+				{{> ionTab title="Radius" path="radius" iconOff="pinpoint" iconOn="pinpoint"}}
+			{{/ionTabs}}
+		{{/if}}
+	{{/if}}
+</template>

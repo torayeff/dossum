@@ -1,0 +1,64 @@
+<template name="changeAvatar">
+	{{#contentFor 'headerButtonLeft'}}
+  		{{>ionNavBackButton path='account'}}
+  	{{/contentFor}}
+
+	{{#contentFor 'headerTitle'}}
+		<h1 class="title">Change avatar</h1>
+	{{/contentFor}}
+
+	{{#ionView}}
+		{{#ionContent}}
+			<div class="avatar-actions">
+				<div class="list">
+					{{#if isCordova}}
+						<div class="item item-button-right">
+							Gallery
+							<a data-action="browse-gallery" class="button button-icon icon ion-images"></a>
+						</div>
+					{{/if}}
+
+					<div class="item item-button-right">
+						Camera
+						<a data-action="take-photo" class="button button-icon icon ion-camera"></a>
+					</div>
+
+					<div class="item item-button-right">
+						Delete avatar
+						<a data-action="delete-avatar" class="button button-icon icon ion-trash-a"></a>
+					</div>
+				</div>
+			</div>
+			<div class="avatar-options" style="display: none;">
+				<div class="crop-area">
+					<div class="avatar-crop"></div>
+				</div>
+				<center>
+					<div class="button-bar">
+						<a class="button" data-action="zoom-out">
+							<i class="icon ion-minus"></i>
+						</a>
+						<a class="button" data-action="zoom-in">
+							<i class="icon ion-plus"></i>
+						</a>
+						<a class="button" data-action="rotate">
+							<i class="icon ion-refresh"></i>
+						</a>
+						<a class="button" data-action="upload-avatar">
+							<i class="icon ion-upload"></i>
+						</a>
+					</div>
+	
+					<div class="loading" style="display: none;">
+				        <div class="loading-container visible active">
+							<div class="loading">
+						        <i class="icon ion-loading-d"></i>
+						        {{progress}}
+						    </div>
+					    </div>
+				    </div>
+				</center>
+			</div>
+		{{/ionContent}}
+	{{/ionView}}
+</template>

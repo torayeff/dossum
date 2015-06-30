@@ -1,0 +1,28 @@
+<template name="recentChats">
+	{{#contentFor "headerTitle"}}
+		<h1 class="title">Recent chats</h1>
+	{{/contentFor}}
+
+  	{{> tabs}}
+
+	{{#ionView}}
+		{{#ionContent}}
+			{{#if totalRecentChats}}
+				<div class="list">
+					{{#each recentChats}}
+						<a class="item item-avatar" href="/chat/{{friendId room}}">
+	  						<img src="{{friendAvatar room}}">
+	  						<h2>{{friendDisplayName room}}</h2>
+	  						<p>
+	  							{{message.msg}}
+	  							{{#if isNewMessage message.from message.state}}
+	  								<i class="icon ion-chatbubble-working assertive"></i>
+	  							{{/if}}
+	  						</p>
+	  					</a>
+					{{/each}}
+				</div>
+			{{/if}}
+		{{/ionContent}}
+	{{/ionView}}
+</template>

@@ -1,0 +1,17 @@
+{
+	"gcm": {
+		"apiKey": "<GCM API KEY>",
+		"projectNumber": "<PROJECT NUMBER>"
+	},
+	"apn": {
+		"passphrase": "<PASS PHRASE>",
+		"key": "dossum-dev-cer.pem",
+		"cert": "dossum-dev.pem",
+		"gateway": "gateway.sandbox.push.apple.com"
+	},
+	"production": false,
+	"badge": true,
+	"sound": true,
+	"alert": true,
+	"vibrate": true
+}

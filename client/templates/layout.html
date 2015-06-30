@@ -1,0 +1,9 @@
+<template name="layout">
+	{{#ionBody}}
+		{{> ionNavBar class="bar-positive"}}
+		
+		{{#ionNavView}}
+			{{> yield}}
+		{{/ionNavView}}
+	{{/ionBody}}
+</template>

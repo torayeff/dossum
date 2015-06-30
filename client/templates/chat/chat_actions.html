@@ -1,0 +1,22 @@
+<template name="chatActions">
+	{{#ionPopover}}
+		<div class="content">
+			<div class="list">
+				<!-- <a href="#" class="item item-icon-right" data-action="delete-message">
+					Delete message
+				</a> -->
+				{{#if isAndroid}}
+					<a href="#" class="item item-icon-right" data-action="delete-all">
+						{{> ionIcon icon="trash-a"}}
+						Delete chat
+					</a>
+				{{else}}
+					<a href="#" class="item item-icon-right" data-action="delete-all">
+						{{> ionIcon icon="ios-trash"}}
+						Delete chat
+					</a>
+				{{/if}}
+			</div>
+		</div>
+	{{/ionPopover}}
+</template>

@@ -1,0 +1,82 @@
+<template name="chat">
+	{{#contentFor 'headerButtonLeft'}}
+  		{{>ionNavBackButton path='recentChats'}}
+  	{{/contentFor}}
+
+	{{#contentFor 'headerTitle'}}
+		<h1 class="title">Chat</h1>
+	{{/contentFor}}
+
+	{{#contentFor 'headerButtonRight'}}
+  		<button class="button button-clear" data-ion-popover="chatActions">
+        	{{#if isAndroid}}
+        		{{> ionIcon icon='android-arrow-dropdown'}}
+        	{{else}}
+        		{{> ionIcon icon='ios-arrow-down'}}
+        	{{/if}}
+   		</button>
+  	{{/contentFor}}
+
+  	{{#ionView}}
+  		{{#ionContent}}
+			{{readMessage room}}
+			<input type="hidden" value="{{room}}" class="room">
+			<ol class="discussion">
+				{{#if olderChats}}
+					<center>
+						<a href="{{olderChats}}" data-action="load-more" 
+						class="button button-small button-icon icon ion-more"></a>
+					</center>
+				{{else}}
+					{{#unless ready}}
+						<center>
+							<div class="loading">
+			        			<i class="icon ion-loading-d"></i>
+			    			</div>
+						</center>
+					{{/unless}}
+				{{/if}}
+				{{#each messages}}
+					<li class="{{bubbleClass from}}" id="{{_id}}">
+						<div class="avatar">
+							<a href="/profile/{{username from}}">
+								<img src="{{avatarUrl from}}" class="rounded" width="48" height="48">
+							</a>
+						</div>
+						<div class="messages">
+							{{#if imageMsg type}}
+								<a href="{{fileURL}}" class="popup-image" id="image-{{_id}}">
+									<img src="{{fileURL}}" width="100%" height="100%">
+								</a>
+							{{else}}
+								<p>{{msg}}</p>
+							{{/if}}
+							<time datetime="{{getDate time}}">
+								{{#if wasRead from state}}
+									Read • 
+								{{/if}} 
+								{{formatTime time}}</time>
+						</div>
+					</li>
+				{{/each}}
+			</ol>
+  		{{/ionContent}}
+		
+  		<div class="bar bar-footer item-input-inset">
+  			<a class="button button-clear pull-left" href="/send-file/{{friendId room}}">
+    			<i class="icon ion-paperclip positive"></i>
+  			</a>
+
+  			<label class="item-input-wrapper">
+    			<i class="icon ion-paper-airplane placeholder-icon"></i>
+    			<input type="hidden" id="friend-id" value="{{friendId room}}">
+    			<input type="text" id="message-input" placeholder="Message">
+  			</label>
+  			
+  			<button class="button button-clear pull-left" value="Send" data-action="send-message">
+    			<i class="positive">Send</i>
+  			</button>
+		</div>
+  	{{/ionView}}
+
+</template>

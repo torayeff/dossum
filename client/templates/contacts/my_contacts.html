@@ -1,0 +1,73 @@
+<template name="myContacts">
+
+  	{{#contentFor "headerTitle"}}
+    	<h1 class="title">Contacts</h1>
+  	{{/contentFor}}
+	
+  	{{#contentFor "headerButtonRight"}}
+  		{{#if isAndroid}}
+	    	<button class="button button-clear" data-ion-modal="searchContactModal">
+	        	{{> ionIcon icon='android-person-add'}}
+	   		</button>
+   		{{else}}
+   			<button class="button button-clear" data-ion-modal="searchContactModal">
+        		{{> ionIcon icon='ios-personadd'}}
+   			</button>
+   		{{/if}}
+  	{{/contentFor}}
+	
+	{{> tabs}}
+
+  	{{#ionView}}
+  		{{#ionContent}}
+  			<div class="list">
+  				
+  				<!-- New Requests -->
+  				{{#if totalRequests}}
+	  				<div class="item item-divider">
+	  					<p>Friend requests - {{totalRequests}}</p>
+	  				</div>
+	  				{{#each requestedFriends}}
+	  					<a class="item item-avatar" href="{{pathFor 'profileView' username}}">
+	  						<img src="{{profile.avatarUrl}}">
+	  						<h2>{{profile.displayName}}</h2>
+	  						<p>{{profile.status}}</p>
+	  					</a>
+	  				{{/each}}
+  				{{/if}}
+  				<!-- New Requests end -->
+				
+				<!-- Active Friends -->
+	  			{{#if totalActiveFriends}}
+					<div class="item item-divider">
+	  					<p>Active friends - {{totalActiveFriends}}</p>
+	  				</div>
+	  				{{#each activeFriends}}
+	  					<a class="item item-avatar" href="{{pathFor 'profileView' username}}">
+	  						<img src="{{profile.avatarUrl}}">
+	  						<h2>{{profile.displayName}}</h2>
+	  						<p>{{profile.status}}</p>
+	  					</a>
+	  				{{/each}}
+	  			{{/if}}
+	  			<!-- Active Friends end -->
+				
+				<!-- Blocked friends -->
+  				{{#if totalBlocked}}
+	  				<div class="item item-divider">
+	  					<p>Blocked friends - {{totalBlocked}}</p>
+	  				</div>
+	  				{{#each blockedFriends}}
+	  					<a class="item item-avatar" href="{{pathFor 'profileView' username}}">
+	  						<img src="{{profile.avatarUrl}}">
+	  						<h2>{{profile.displayName}}</h2>
+	  						<p>{{profile.status}}</p>
+	  					</a>
+	  				{{/each}}
+  				{{/if}}
+  				<!-- Blocked friends end -->
+
+  			</div>
+  		{{/ionContent}}
+  	{{/ionView}}
+</template>

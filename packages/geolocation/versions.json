@@ -1,0 +1,23 @@
+{
+  "dependencies": [
+    [
+      "meteor",
+      "1.0.0"
+    ],
+    [
+      "reactive-var",
+      "1.0.1"
+    ],
+    [
+      "tracker",
+      "1.0.2-rc0"
+    ],
+    [
+      "underscore",
+      "1.0.0"
+    ]
+  ],
+  "pluginDependencies": [],
+  "toolVersion": "meteor-tool@1.0.33",
+  "format": "1.0"
+}

@@ -1,0 +1,89 @@
+<template name="profileView">
+	
+  	{{#contentFor 'headerButtonLeft'}}
+  		{{>ionNavBackButton path=''}}
+  	{{/contentFor}}
+
+	{{#contentFor 'headerTitle'}}
+		<h1 class="title">{{user.profile.displayName}}</h1>
+	{{/contentFor}}
+
+	{{#ionView}}
+		{{#ionContent}}
+			<div class="list card"> 
+				<div class="item item-body"> 
+					<center>
+						<a href="{{user.profile.avatarUrl}}" class="popup-image"><img src="{{user.profile.avatarUrl}}" class="rounded" width="256" height="256"></a>
+				   		<p>ID:  {{user.username}}<br> 
+				   			<strong>{{user.profile.displayName}}</strong>
+				   			<br> 
+				   			{{user.profile.status}}
+				   		</p> 
+				   	</center>  
+			   	</div> 
+			   	<div class="item tabs tabs-secondary tabs-icon-left">
+
+			   		{{#if isNewRequest user._id}}
+			   			{{#if isAndroid}}
+			   				<a class="tab-item" href="#" data-action="accept-friendship" id="{{user._id}}"> 
+					   			<i class="icon ion-android-done"></i>Accept 
+					   		</a> 
+					   		<a class="tab-item" href="#" data-action="reject-friendship" id="{{user._id}}"> 
+					   			<i class="icon ion-android-close"></i>Reject
+					   		</a> 
+			   			{{else}}
+			   				<a class="tab-item" href="#" data-action="accept-friendship" id="{{user._id}}"> 
+					   			<i class="icon ion-ios-checkmark"></i>Accept 
+					   		</a> 
+					   		<a class="tab-item" href="#" data-action="reject-friendship" id="{{user._id}}"> 
+					   			<i class="icon ion-ios-close"></i>Reject
+					   		</a>
+			   			{{/if}}
+			   		{{/if}}
+
+			   		{{#if isActive user._id}}
+			   			{{#if isAndroid}}
+			   				<a class="tab-item" href="/chat/{{user._id}}"> 
+					   			<i class="icon ion-android-textsms"></i>Chat 
+					   		</a> 
+					   		<a class="tab-item" href="#" data-action="block-friend" id="{{user._id}}"> 
+					   			<i class="icon ion-android-lock"></i>Block 
+					   		</a> 
+					   		<a class="tab-item" href="#" data-action="delete-friend" id="{{user._id}}"> 
+					   			<i class="icon ion-android-remove-circle"></i>Delete 
+					   		</a>
+			   			{{else}}
+			   				<a class="tab-item" href="/chat/{{user._id}}"> 
+					   			<i class="icon ion-ios-chatbubble"></i>Chat 
+					   		</a> 
+					   		<a class="tab-item" href="#" data-action="block-friend" id="{{user._id}}"> 
+					   			<i class="icon ion-ios-locked"></i>Block 
+					   		</a> 
+					   		<a class="tab-item" href="#" data-action="delete-friend" id="{{user._id}}"> 
+					   			<i class="icon ion-ios-minus"></i>Delete 
+					   		</a>
+			   			{{/if}} 
+			   		{{/if}}
+
+			   		{{#if isBlocked user._id}}
+			   			{{#if isAndroid}}
+			   				<a class="tab-item" href="#" data-action="unblock-friend" id="{{user._id}}"> 
+					   			<i class="icon ion-android-unlock"></i>Unblock 
+					   		</a> 
+					   		<a class="tab-item" href="#" data-action="delete-friend" id="{{user._id}}"> 
+					   			<i class="icon ion-android-remove-circle"></i>Delete 
+					   		</a>
+			   			{{else}}
+			   				<a class="tab-item" href="#" data-action="unblock-friend" id="{{user._id}}"> 
+					   			<i class="icon ion-ios-unlocked"></i>Unblock 
+					   		</a> 
+					   		<a class="tab-item" href="#" data-action="delete-friend" id="{{user._id}}"> 
+					   			<i class="icon ion-ios-minus"></i>Delete 
+					   		</a>
+			   			{{/if}} 
+			   		{{/if}}
+			   	</div> 
+		   	</div>
+		{{/ionContent}}
+	{{/ionView}}
+</template>
