@@ -1,1 +1,1 @@
-Kadira.connect('zzX3ghmuXNSEtTmHD', '441999ad-6f8f-4ac1-9492-c5a479b84877');
+Kadira.connect('<APP ID>', '<APP SECRET>');
