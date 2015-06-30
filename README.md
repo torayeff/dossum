@@ -18,7 +18,12 @@ Open source instant messenger built with <a href="http://meteor.com/">Meteor</a>
 <li>Push notifications</li>
 <li>Nearby friends (radius) - not implemented yet</li>
 </ul>
+<h2><strong>Setup</strong></h2>
+<ul>
+<li>Configure Google Cloud Storage with <strong>edgee:slingshot</strong> package. <a href="https://github.com/CulturalMe/meteor-slingshot">See here.</a> Paste credentials in <strong>settings.json</strong></li>
+<li>Configure GCM for Android push notifications with <strong>raix:push</strong> packages. <a href="https://github.com/raix/push">See here</a>. Paste credentials in <strong>config.push.json</strong></li>
+<li>Configure APN for iOS push notifications with <strong>raix:push</strong> packages. <a href="https://github.com/raix/push">See here</a>. Paste credentials in <strong>config.push.json</strong></li>
+</ul>
 <h2><strong><a href="http://dossum.com">Demo</a></strong></h2>
-<h2><strong><a href="#">Android version (apk)</a></strong></h2>
 <h2><strong>What does "dossum" mean?</strong></h2>
 Dossum is a slang in turkmen language which means "my friend".
